@@ -1,311 +1,321 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Space Explorer</title>
+  <head>
+    <title>
+      Space Explorer
+    </title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+      body {margin: 0;
+            min-height: 150vh;
+            color:white;
+        background-image: url("WhatsApp Image 2026-10-06 at 8.34.20 PM.jpeg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+           }
+      .home-frame {
+  min-height: calc(100vh - 80px);
+  margin: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 35px;
 
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+  position: relative;
+  overflow: hidden;
 
-    body {
-      margin: 0;
-      min-height: 150vh;
-      color: white;
+  box-shadow:
+    inset 0 0 60px rgba(0, 0, 0, 0.25),
+    0 0 40px rgba(0, 0, 0, 0.25);
+}
+           
+     h1 {
+  text-align: left;
+  font-family: 'Inter', sans-serif;
+  font-size: 64px;
+  font-weight: 300;
+  letter-spacing: -2px;
+  margin-top: 150px;
+  margin-left: 8%;
+  margin-bottom: 20px;
+}
+      .hero-description {
+  font-family: 'Inter', sans-serif;
+  font-size: 17px;
+  font-weight: 300;
+  line-height: 1.6;
 
-      background-image: url("WhatsApp Image 2026-10-06 at 8.34.20 PM.jpeg");
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-    }
+  color: rgba(255, 255, 255, 0.7);
 
-    .home-frame {
-      min-height: calc(100vh - 80px);
-      margin: 40px;
+  max-width: 420px;
 
-      border: 1px solid rgba(255, 255, 255, 0.22);
-      border-radius: 35px;
+  margin-left: 8%;
+  margin-bottom: 32px;
+}
 
-      position: relative;
-      overflow: hidden;
+body > p {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.78);
 
-      box-shadow:
-        inset 0 0 60px rgba(0, 0, 0, 0.25),
-        0 0 40px rgba(0, 0, 0, 0.25);
-    }
+  max-width: 600px;
+  margin: 0 auto 35px;
 
-    h1 {
-      text-align: left;
-      font-family: 'Inter', sans-serif;
-      font-size: 64px;
-      font-weight: 300;
-      letter-spacing: -2px;
+  line-height: 1.7;
 
-      margin-top: 150px;
-      margin-left: 8%;
-      margin-bottom: 20px;
-    }
-
-    .hero-description {
-      font-family: 'Inter', sans-serif;
-      font-size: 17px;
-      font-weight: 300;
-      line-height: 1.6;
-
-      color: rgba(255, 255, 255, 0.7);
-
-      max-width: 420px;
-
-      margin-left: 8%;
-      margin-bottom: 32px;
-    }
-
-    section {
-      text-align: center;
-      margin-top: 600px;
-      min-height: 500px;
-    }
-
-    #explore {
-      border-top: 1px solid rgba(255, 255, 255, 0.12);
-      padding-top: 80px;
-    }
-
-    h2 {
-      font-size: 35px;
-    }
-
-    /* Start Exploring button */
-
-    button {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-
-      background: rgba(20, 25, 32, 0.55);
-      color: white;
-
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 40px;
-
-      padding: 7px 24px 7px 7px;
-
-      font-family: 'Inter', sans-serif;
-      font-size: 16px;
-      font-weight: 400;
-
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-
-      box-shadow:
-        inset 0 1px 1px rgba(255,255,255,0.18),
-        0 10px 30px rgba(0,0,0,0.35);
-
-      cursor: pointer;
-      margin-left: 8%;
-
-      transition: 0.3s ease;
-    }
-
-    button::before {
-      content: "";
-      position: absolute;
-
-      top: -80%;
-      left: -30%;
-
-      width: 160%;
-      height: 200%;
-
-      background: linear-gradient(
-        120deg,
-        transparent 35%,
-        rgba(255,255,255,0.12) 50%,
-        transparent 65%
-      );
-
-      transform: translateX(-60%);
-      transition: transform 0.7s ease;
-    }
-
-    button:hover {
-      background: rgba(35, 40, 48, 0.7);
-      transform: translateY(-3px) scale(1.03);
-
-      box-shadow:
-        inset 0 1px 1px rgba(255,255,255,0.25),
-        0 15px 40px rgba(0,0,0,0.55);
-    }
-
-    button:hover::before {
-      transform: translateX(60%);
-    }
-
-    button:active {
-      transform: translateY(-1px) scale(0.98);
-    }
-
-    .arrow {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      width: 46px;
-      height: 46px;
-
-      border-radius: 50%;
-
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-
-      font-size: 23px;
-      font-weight: 300;
-    }
-
-    /* Space cards */
-
-    .space-card {
-      background: rgba(5, 8, 15, 0.45);
-
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-
-      border: 1px solid rgba(255, 255, 255, 0.15);
-
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
-
-      padding: 25px;
-      margin: 20px auto;
-
-      max-width: 500px;
-
-      border-radius: 22px;
-
-      text-align: center;
-
-      transition: transform 0.15s ease;
-    }
-
-    .cards-container {
-      display: grid;
-
-      grid-template-columns: repeat(4, 1fr);
-
-      gap: 20px;
-
-      max-width: 1200px;
-
-      margin: 40px auto;
-
-      padding: 0 20px;
-    }
-
-    @media (max-width: 800px) {
-      .cards-container {
-        grid-template-columns: 1fr 1fr;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8);
+}
+      section {
+  text-align: center;
+  margin-top: 600px;
+  min-height: 500px
+}
+      h2 {
+        font-size: 35px;
       }
-    }
-
-    @media (max-width: 500px) {
+      .space-card {
+  background: rgba(5, 8, 15, 0.45);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+  padding: 25px;
+  margin: 20px auto;
+  max-width: 500px;
+  border-radius: 22px;
+  text-align: center;
+  transition: transform 0.15s ease;
+}
       .cards-container {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
-</head>
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+      @media (max-width: 800px) {
+  .cards-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+     button {
+  display: flex;
+  align-items: center;
+  gap: 16px;
 
-<body>
+  background: rgba(20, 25, 32, 0.55);
+  color: white;
 
-  <div class="home-frame">
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 40px;
 
+  padding: 7px 24px 7px 7px;
+
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  box-shadow:
+    inset 0 1px 1px rgba(255,255,255,0.18),
+    0 10px 30px rgba(0,0,0,0.35);
+
+  cursor: pointer;
+  margin-left: 8%;
+
+  transition: 0.3s ease;
+}
+
+button:hover {
+  background: rgba(35, 40, 48, 0.7);
+  transform: translateY(-2px);
+}
+
+button:hover {
+  background: rgba(20, 25, 35, 0.7);
+  transform: translateY(-3px) scale(1.03);
+
+  box-shadow:
+    inset 0 1px 1px rgba(255,255,255,0.25),
+    0 15px 40px rgba(0,0,0,0.55);
+}
+
+@media (max-width: 500px) {
+  .cards-container {
+    grid-template-columns: 1fr;
+  }
+  button {
+  position: relative;
+  overflow: hidden;
+
+  background: rgba(10, 15, 25, 0.55);
+  color: white;
+
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 18px;
+
+  padding: 17px 38px;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.18),
+    inset 0 -10px 25px rgba(0, 0, 0, 0.25),
+    0 12px 35px rgba(0, 0, 0, 0.45);
+
+  cursor: pointer;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
+}
+
+/* Liquid shine */
+button::before {
+  content: "";
+  position: absolute;
+
+  top: -80%;
+  left: -30%;
+
+  width: 160%;
+  height: 200%;
+
+  background: linear-gradient(
+    120deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0.12) 50%,
+    transparent 65%
+  );
+
+  transform: translateX(-60%);
+  transition: transform 0.7s ease;
+}
+
+/* Hover */
+button:hover {
+  background: rgba(20, 27, 40, 0.7);
+
+  transform: translateY(-4px) scale(1.03);
+
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.25),
+    inset 0 -10px 25px rgba(0, 0, 0, 0.3),
+    0 18px 45px rgba(0, 0, 0, 0.55),
+    0 0 25px rgba(255, 255, 255, 0.08);
+}
+
+button:hover::before {
+  transform: translateX(60%);
+}
+
+/* Click */
+button:active {
+  transform: translateY(-1px) scale(0.98);
+}
+  .arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 46px;
+  height: 46px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  font-size: 23px;
+  font-weight: 300;
+}
+  #explore {
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding-top: 80px;
+}
+    </style>
+  </head>
+  <body>
+    <div class="home-frame">
     <h1>
+       <!-- HOMEPAGE -->
       SPACE EXPLORER
     </h1>
-
     <p class="hero-description">
-      Explore the planets, galaxies, comets, and wonders of the universe.
-    </p>
-
+   Explore the planets, galaxies, comets, and wonders of the universe.
+</p>
     <button onclick="document.getElementById('explore').scrollIntoView({behavior: 'smooth'})">
-      <span class="arrow">→</span>
-      <span>Start Exploring</span>
-    </button>
-
-
+  <span class="arrow">→</span>
+  <span>Start Exploring</span>
+</button>
     <section id="explore">
-
       <h2>
         Explore Space
       </h2>
-
       <p>
         Discover planets, stars, galaxies, and black holes
       </p>
-
       <div class="cards-container">
-
-        <div class="space-card">
-          <h3>🌍 Planets</h3>
-          <p>
-            Learn about the worlds in our Solar System.
-          </p>
-        </div>
-
-        <div class="space-card">
-          <h3>⭐ Stars</h3>
-          <p>
-            Discover how stars are born, live, and die.
-          </p>
-        </div>
-
-        <div class="space-card">
-          <h3>🌌 Galaxies</h3>
-          <p>
-            Explore enormous collections of stars and planets.
-          </p>
-        </div>
-
-        <div class="space-card">
-          <h3>🕳️ Black Holes</h3>
-          <p>
-            Discover some of the strangest objects in space.
-          </p>
-        </div>
-
+      <div class="space-card">
+        <h3>🌍 Planets </h3>
+        <p>
+          Learn about the worlds in our Solar System.
+        </p>
       </div>
-
+      <div class="space-card">
+        <h3>
+          ⭐ Stars
+        </h3>
+        <p>
+          Discover how stars are born, live, and die.
+        </p>
+      </div>
+      <div class="space-card">
+        <h3>
+          🌌 Galaxies
+        </h3>
+        <p>
+          Explore enormous collections of stars and planets.
+        </p>
+      </div>
+      <div class="space-card">
+        <h3>
+          🕳️ Black Holes
+        </h3>
+        <p>
+          Discover some of the strangest objects in space.
+        </p>
+      </div>
     </section>
+    <script>
+  const cards = document.querySelectorAll('.space-card');
 
-  </div>
+  cards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
 
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
 
-  <script>
-    const cards = document.querySelectorAll('.space-card');
+      const rotateX = (y / rect.height - 0.5) * -10;
+      const rotateY = (x / rect.width - 0.5) * 10;
 
-    cards.forEach(card => {
-
-      card.addEventListener('mousemove', (e) => {
-
-        const rect = card.getBoundingClientRect();
-
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-
-        const rotateX = (y / rect.height - 0.5) * -10;
-        const rotateY = (x / rect.width - 0.5) * 10;
-
-        card.style.transform =
-          `perspective(600px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
-      });
-
-      card.addEventListener('mouseleave', () => {
-
-        card.style.transform =
-          'perspective(600px) rotateX(0deg) rotateY(0deg) scale(1)';
-      });
-
+      card.style.transform =
+        perspective(600px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03);
     });
-  </script>
 
-</body>
-</html>  
-
+    card.addEventListener('mouseleave', () => {
+      card.style.transform =
+        'perspective(600px) rotateX(0deg) rotateY(0deg) scale(1)';
+    });
+  });
+</script>
+  </body>
+</html>
