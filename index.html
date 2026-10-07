@@ -176,8 +176,6 @@ button:hover {
     box-shadow 0.3s ease,
     background 0.3s ease;
 }
-
-/* Liquid shine */
 button::before {
   content: "";
   position: absolute;
@@ -198,8 +196,6 @@ button::before {
   transform: translateX(-60%);
   transition: transform 0.7s ease;
 }
-
-/* Hover */
 button:hover {
   background: rgba(20, 27, 40, 0.7);
 
@@ -215,8 +211,6 @@ button:hover {
 button:hover::before {
   transform: translateX(60%);
 }
-
-/* Click */
 button:active {
   transform: translateY(-1px) scale(0.98);
 }
@@ -240,12 +234,38 @@ button:active {
   border-top: 1px solid rgba(255, 255, 255, 0.12);
   padding-top: 80px;
 }
+  .logo {
+  position: absolute;
+  top: 20px;
+  left: 35px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  color: white;
+}
     </style>
+  </span>
+  <span>Space Explorer</span>
+</div>
   </head>
   <body>
     <div class="home-frame">
+      <div class="logo">
+  <span class="logo-icon">
+    <svg viewBox="0 0 64 64" width="38" height="38" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="32" cy="32" rx="25" ry="11"
+               fill="none"
+               stroke="white"
+               stroke-width="2.5"
+               transform="rotate(-20 32 32)"/>
+      <circle cx="32" cy="32" r="10"
+              fill="none"
+              stroke="white"
+              stroke-width="2.5"/>
+    </svg>
     <h1>
-       <!-- HOMEPAGE -->
       SPACE EXPLORER
     </h1>
     <p class="hero-description">
