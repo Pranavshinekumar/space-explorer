@@ -5,6 +5,7 @@
       Space Explorer
     </title>
     <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
       body {margin: 0;
             min-height: 150vh;
             color:white;
@@ -15,19 +16,28 @@
         background-attachment: fixed;
            }
            
-      h1 {
-  text-align: center;
+     h1 {
+  text-align: left;
+  font-family: 'Inter', sans-serif;
+  font-size: 64px;
+  font-weight: 300;
+  letter-spacing: -2px;
+  margin-top: 150px;
+  margin-left: 8%;
+  margin-bottom: 20px;
+}
+      .hero-description {
+  font-family: 'Inter', sans-serif;
+  font-size: 17px;
+  font-weight: 300;
+  line-height: 1.6;
 
-  font-size: clamp(48px, 7vw, 82px);
-  font-weight: 700;
-  letter-spacing: 6px;
+  color: rgba(255, 255, 255, 0.7);
 
-  margin-top: 110px;
-  margin-bottom: 15px;
+  max-width: 420px;
 
-  text-shadow:
-    0 4px 25px rgba(0, 0, 0, 0.8),
-    0 0 35px rgba(255, 255, 255, 0.12);
+  margin-left: 8%;
+  margin-bottom: 32px;
 }
 
 body > p {
@@ -75,27 +85,39 @@ body > p {
     grid-template-columns: 1fr 1fr;
   }
 }
-      button {
-  background: rgba(5, 8, 15, 0.55);
+     button {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  background: rgba(20, 25, 32, 0.55);
   color: white;
+
   border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 40px;
+
+  padding: 7px 24px 7px 7px;
+
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
 
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
 
-  padding: 16px 35px;
-  border-radius: 18px;
-
-  font-size: 18px;
-  font-weight: 600;
-
-  cursor: pointer;
-
   box-shadow:
     inset 0 1px 1px rgba(255,255,255,0.18),
-    0 10px 35px rgba(0,0,0,0.45);
+    0 10px 30px rgba(0,0,0,0.35);
+
+  cursor: pointer;
+  margin-left: 8%;
 
   transition: 0.3s ease;
+}
+
+button:hover {
+  background: rgba(35, 40, 48, 0.7);
+  transform: translateY(-2px);
 }
 
 button:hover {
@@ -185,16 +207,35 @@ button:hover::before {
 button:active {
   transform: translateY(-1px) scale(0.98);
 }
+  .arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 46px;
+  height: 46px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  font-size: 23px;
+  font-weight: 300;
+}
     </style>
   </head>
   <body>
     <h1>
       SPACE EXPLORER
     </h1>
-    <p>
-      Explore the planets, galaxies, comets, and wonders of the universe.
-    </p>
-    <button onclick="document.getElementById('explore').scrollIntoView()">Start Exploring</button>
+    <p class="hero-description">
+   Explore the planets, galaxies, comets, and wonders of the universe.
+</p>
+    <button onclick="document.getElementById('explore').scrollIntoView({behavior: 'smooth'})">
+  <span class="arrow">→</span>
+  <span>Start Exploring</span>
+</button>
     <section id="explore">
       <h2>
         Explore Space
