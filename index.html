@@ -236,23 +236,22 @@ button:active {
 }
   .logo {
   position: absolute;
-  top: 22px;
+  top: 24px;
   left: 35px;
-
   display: flex;
   align-items: center;
   gap: 12px;
-
   font-family: 'Inter', sans-serif;
   font-size: 18px;
   font-weight: 400;
   color: white;
+  z-index: 10;
 }
 
-.logo-icon {
-  width: 42px;
-  height: 32px;
-  display: block;
+.logo svg {
+  width: 42px !important;
+  height: 32px !important;
+  flex-shrink: 0;
 }
     </style>
   </span>
