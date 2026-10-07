@@ -1,1 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Planets | Space Explorer</title>
 
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: white;
+      font-family: 'Inter', sans-serif;
+
+      background-image: url("WhatsApp Image 2026-10-06 at 8.34.20 PM.jpeg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+
+    .page-frame {
+      min-height: calc(100vh - 80px);
+      margin: 40px;
+      padding: 60px 40px;
+
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 35px;
+
+      background: rgba(0, 0, 0, 0.12);
+      backdrop-filter: blur(5px);
+
+      box-shadow:
+        inset 0 0 60px rgba(0, 0, 0, 0.25),
+        0 0 40px rgba(0, 0, 0, 0.25);
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 52px;
+      font-weight: 300;
+      letter-spacing: -2px;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: rgba(255, 255, 255, 0.65);
+      font-size: 16px;
+      margin-bottom: 60px;
+    }
+
+    .planets-container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .planet-card {
+      padding: 30px 20px;
+
+      background: rgba(5, 8, 15, 0.45);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 22px;
+
+      text-align: center;
+
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+
+      cursor: pointer;
+
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .planet-card:hover {
+      transform: translateY(-8px) scale(1.03);
+      background: rgba(20, 25, 35, 0.65);
+    }
+
+    .planet-icon {
+      font-size: 55px;
+      margin-bottom: 15px;
+    }
+
+    .planet-card h2 {
+      font-size: 22px;
+      font-weight: 400;
+      margin: 10px 0;
+    }
+
+    .planet-card p {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .back-button {
+      display: block;
+      width: fit-content;
+      margin: 50px auto 0;
+
+      padding: 12px 25px;
+
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 30px;
+
+      background: rgba(20, 25, 32, 0.55);
+      color: white;
+
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+
+      cursor: pointer;
+    }
+
+    .back-button:hover {
+      background: rgba(35, 40, 48, 0.7);
+    }
+
+    @media (max-width: 900px) {
+      .planets-container {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 550px) {
+      .page-frame {
+        margin: 20px;
+        padding: 40px 20px;
+      }
+
+      .planets-container {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 40px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="page-frame">
+
+    <h1>THE PLANETS</h1>
+
+    <p class="subtitle">
+      Explore the eight worlds of our Solar System.
+    </p>
+
+    <div class="planets-container">
+
+      <div class="planet-card" onclick="window.location.href='mercury.html'">
+        <div class="planet-icon">☿</div>
+        <h2>Mercury</h2>
+        <p>The smallest planet and the closest planet to the Sun.</p>
+      </div>
+
+      <div class="planet-card" onclick="window.location.href='venus.html'">
+        <div class="planet-icon">♀</div>
+        <h2>Venus</h2>
+        <p>A hot world covered by a thick atmosphere.</p>
+      </div>
+
+      <div class="planet-card" onclick="window.location.href='earth.html'">
+        <div class="planet-icon">🌍</div>
+        <h2>Earth</h2>
+        <p>Our home planet and the only world known to support life.</p>
+      </div>
+
+      <div class="planet-card" onclick="window.location.href='mars.html'">
+        <div class="planet-icon">🔴</div>
+        <h2>Mars</h2>
+        <p>The red planet with a cold, rocky surface.</p>
+      </div>
+
+      <div class="planet-card" onclick="window.location.href='jupiter.html'">
+        <div class="planet-icon">🟠</div>
+        <h2>Jupiter</h2>
+        <p>The largest planet in our Solar System.</p>
+      </div>
+
+      <div class="planet-card" onclick="window.location.href='saturn.html'">
+        <div class="planet-icon">🪐</div>
+        <h2>Saturn</h2>
+        <p>A giant planet famous for its spectacular rings.</p>
+      </div>
+
+      <div class="planet-card" onclick="window.location.href='uranus.html'">
+        <div class="planet-icon">🔵</div>
+        <h2>Uranus</h2>
+        <p>An icy giant that rotates at an unusual angle.</p>
+      </div>
+
+      <div class="planet-card" onclick="window.location.href='neptune.html'">
+        <div class="planet-icon">🔵</div>
+        <h2>Neptune</h2>
+        <p>The distant blue planet with extremely powerful winds.</p>
+      </div>
+
+    </div>
+
+    <button class="back-button" onclick="window.location.href='index.html'">
+      ← Back to Space Explorer
+    </button>
+
+  </div>
+
+</body>
+</html>
