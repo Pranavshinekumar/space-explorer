@@ -320,7 +320,7 @@ button:active {
       const rotateY = (x / rect.width - 0.5) * 10;
 
       card.style.transform =
-        perspective(600px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03);
+        `perspective(600px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
     });
 
     card.addEventListener('mouseleave', () => {
