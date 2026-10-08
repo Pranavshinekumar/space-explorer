@@ -1,1 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Black Holes | Space Explorer</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
 
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: white;
+      font-family: 'Inter', sans-serif;
+      background-color: #05070c;
+      background-image: url("WhatsApp Image 2026-10-06 at 8.34.20 PM.jpeg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+
+    .home-frame {
+      margin: 40px;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 35px;
+      position: relative;
+      overflow: hidden;
+      padding-bottom: 80px;
+      box-shadow:
+        inset 0 0 60px rgba(0, 0, 0, 0.25),
+        0 0 40px rgba(0, 0, 0, 0.25);
+    }
+
+    /* ---------- Back link ---------- */
+    .back {
+      position: absolute;
+      top: 24px;
+      left: 35px;
+      z-index: 10;
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 400;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .back:hover { color: white; }
+    .back:focus-visible,
+    .btn:focus-visible { outline: 2px solid white; outline-offset: 4px; }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      align-items: center;
+      gap: 20px;
+      min-height: calc(100vh - 80px);
+      padding: 0 8%;
+    }
+
+    h1 {
+      font-size: 64px;
+      font-weight: 300;
+      letter-spacing: -2px;
+      margin: 0 0 20px;
+    }
+
+    .hero-description {
+      font-size: 17px;
+      font-weight: 300;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.7);
+      max-width: 420px;
+      margin: 0 0 32px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+      background: rgba(20, 25, 32, 0.55);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 40px;
+      padding: 7px 24px 7px 7px;
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 400;
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      box-shadow:
+        inset 0 1px 1px rgba(255, 255, 255, 0.18),
+        0 10px 30px rgba(0, 0, 0, 0.35);
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+    .btn:hover {
+      background: rgba(20, 25, 35, 0.7);
+      transform: translateY(-3px) scale(1.03);
+      box-shadow:
+        inset 0 1px 1px rgba(255, 255, 255, 0.25),
+        0 15px 40px rgba(0, 0, 0, 0.55);
+    }
+    .arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      font-size: 23px;
+      font-weight: 300;
+    }
+
+    /* ---------- The black hole ---------- */
+    .bh-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .bh {
+      position: relative;
+      width: min(420px, 80vw);
+      aspect-ratio: 1;
+    }
+    .disk {
+      position: absolute;
+      inset: 14% -12%;
+      border-radius: 50%;
+      background: conic-gradient(
+        from 0deg,
+        #ffd9a0, #ff9a3c, #b8460f, #3a1405,
+        #b8460f, #ff9a3c, #ffd9a0
+      );
+      filter: blur(6px);
+      transform: rotateX(72deg);
+      animation: spin 14s linear infinite;
+      -webkit-mask: radial-gradient(circle, transparent 38%, #000 40%, #000 62%, transparent 72%);
+              mask: radial-gradient(circle, transparent 38%, #000 40%, #000 62%, transparent 72%);
+    }
+    .halo {
+      position: absolute;
+      inset: 18%;
+      border-radius: 50%;
+      background: conic-gradient(from 90deg, #ffd9a0, #ff9a3c, #b8460f, #ff9a3c, #ffd9a0);
+      filter: blur(5px);
+      -webkit-mask: radial-gradient(circle, transparent 62%, #000 66%, #000 74%, transparent 80%);
+              mask: radial-gradient(circle, transparent 62%, #000 66%, #000 74%, transparent 80%);
+      animation: pulse 6s ease-in-out infinite;
+    }
+    .shadow {
+      position: absolute;
+      inset: 26%;
+      border-radius: 50%;
+      background: #000;
+      box-shadow: 0 0 60px 20px rgba(0, 0, 0, 0.9);
+    }
+    @keyframes spin  { to { transform: rotateX(72deg) rotate(360deg); } }
+    @keyframes pulse { 50% { opacity: 0.7; } }
+
+    /* ---------- Content sections ---------- */
+    .content { padding: 0 8%; }
+
+    .section {
+      padding-top: 80px;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      margin-top: 40px;
+    }
+
+    h2 {
+      font-size: 35px;
+      font-weight: 300;
+      letter-spacing: -1px;
+      margin: 0 0 14px;
+    }
+
+    .lead {
+      font-size: 18px;
+      font-weight: 300;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.78);
+      max-width: 620px;
+      margin: 0 0 36px;
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8);
+    }
+
+    .cards { display: grid; gap: 20px; }
+    .cards.three { grid-template-columns: repeat(3, 1fr); }
+    .cards.four  { grid-template-columns: repeat(4, 1fr); }
+
+    .space-card {
+      background: rgba(5, 8, 15, 0.45);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+      padding: 25px;
+      border-radius: 22px;
+      text-align: left;
+      transition: transform 0.15s ease;
+    }
+    .space-card h3 {
+      margin: 0 0 10px;
+      font-size: 20px;
+      font-weight: 500;
+    }
+    .space-card p {
+      margin: 0;
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.65;
+      color: rgba(255, 255, 255, 0.72);
+    }
+    .space-card .stat {
+      display: block;
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .anatomy {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .footer-row {
+      margin-top: 80px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .footer-row p {
+      margin: 0;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.7);
+      max-width: 420px;
+      line-height: 1.6;
+    }
+    a.btn { text-decoration: none; }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 900px) {
+      .cards.four { grid-template-columns: 1fr 1fr; }
+      .cards.three, .anatomy { grid-template-columns: 1fr; }
+      .hero { grid-template-columns: 1fr; padding-top: 110px; padding-bottom: 60px; min-height: auto; }
+      .bh-wrap { order: -1; }
+    }
+    @media (max-width: 600px) {
+      .home-frame { margin: 14px; border-radius: 26px; }
+      h1 { font-size: 44px; letter-spacing: -1px; }
+      h2 { font-size: 28px; }
+      .cards.four { grid-template-columns: 1fr; }
+      .back { left: 22px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .disk, .halo { animation: none; }
+      .btn, .space-card { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="home-frame">
+    <a class="back" href="index.html">← Space Explorer</a>
+
+    <header class="hero">
+      <div>
+        <h1>BLACK HOLES</h1>
+        <p class="hero-description">
+          Regions of space where gravity is so strong that nothing, not even light, can escape.
+        </p>
+        <button class="btn" onclick="document.getElementById('what').scrollIntoView({behavior: 'smooth'})">
+          <span class="arrow">→</span>
+          <span>Learn more</span>
+        </button>
+      </div>
+
+      <div class="bh-wrap" aria-hidden="true">
+        <div class="bh">
+          <div class="halo"></div>
+          <div class="disk"></div>
+          <div class="shadow"></div>
+        </div>
+      </div>
+    </header>
+
+    <main class="content">
+
+      <section class="section" id="what">
+        <h2>What is a black hole?</h2>
+        <p class="lead">
+          A black hole forms when a huge amount of matter is squeezed into a very small space.
+          Its gravity becomes so strong that the escape speed passes the speed of light.
+          You can't see a black hole directly, but you can see the glowing gas around it and the way it bends the light of stars behind it.
+        </p>
+      </section>
+
+      <section class="section">
+        <h2>Parts of a black hole</h2>
+        <p class="lead">Every black hole has the same basic structure.</p>
+        <div class="anatomy">
+          <div class="space-card">
+            <h3>Event horizon</h3>
+            <p>The point of no return. Anything that crosses it, including light, can't come back out.</p>
+          </div>
+          <div class="space-card">
+            <h3>Singularity</h3>
+            <p>The center, where our current physics predicts matter is crushed to infinite density. Scientists still don't know what really happens there.</p>
+          </div>
+          <div class="space-card">
+            <h3>Accretion disk</h3>
+            <p>A spinning ring of gas and dust that falls toward the black hole. Friction heats it until it glows brightly in X-rays.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Types of black holes</h2>
+        <p class="lead">Black holes come in very different sizes.</p>
+        <div class="cards four">
+          <div class="space-card">
+            <h3>Stellar</h3>
+            <p>Born when a massive star runs out of fuel and collapses in a supernova.</p>
+            <span class="stat">About 3 to 100 times the Sun's mass</span>
+          </div>
+          <div class="space-card">
+            <h3>Intermediate</h3>
+            <p>A rarer middle size. Astronomers have found only a few strong candidates.</p>
+            <span class="stat">About 100 to 100,000 solar masses</span>
+          </div>
+          <div class="space-card">
+            <h3>Supermassive</h3>
+            <p>Sits at the center of most large galaxies. How they grew so big so fast is still an open question.</p>
+            <span class="stat">Millions to billions of solar masses</span>
+          </div>
+          <div class="space-card">
+            <h3>Primordial</h3>
+            <p>Hypothetical black holes that may have formed in the first moments after the Big Bang. None have been
