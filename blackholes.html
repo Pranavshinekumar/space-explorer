@@ -53,10 +53,9 @@
 
     /* ---------- Hero ---------- */
     .hero {
-      display: grid;
-      grid-template-columns: 1.1fr 1fr;
-      align-items: center;
-      gap: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       min-height: calc(100vh - 80px);
       padding: 0 8%;
     }
@@ -116,52 +115,6 @@
       font-size: 23px;
       font-weight: 300;
     }
-
-    /* ---------- The black hole ---------- */
-    .bh-wrap {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .bh {
-      position: relative;
-      width: min(420px, 80vw);
-      aspect-ratio: 1;
-    }
-    .disk {
-      position: absolute;
-      inset: 14% -12%;
-      border-radius: 50%;
-      background: conic-gradient(
-        from 0deg,
-        #ffd9a0, #ff9a3c, #b8460f, #3a1405,
-        #b8460f, #ff9a3c, #ffd9a0
-      );
-      filter: blur(6px);
-      transform: rotateX(72deg);
-      animation: spin 14s linear infinite;
-      -webkit-mask: radial-gradient(circle, transparent 38%, #000 40%, #000 62%, transparent 72%);
-              mask: radial-gradient(circle, transparent 38%, #000 40%, #000 62%, transparent 72%);
-    }
-    .halo {
-      position: absolute;
-      inset: 18%;
-      border-radius: 50%;
-      background: conic-gradient(from 90deg, #ffd9a0, #ff9a3c, #b8460f, #ff9a3c, #ffd9a0);
-      filter: blur(5px);
-      -webkit-mask: radial-gradient(circle, transparent 62%, #000 66%, #000 74%, transparent 80%);
-              mask: radial-gradient(circle, transparent 62%, #000 66%, #000 74%, transparent 80%);
-      animation: pulse 6s ease-in-out infinite;
-    }
-    .shadow {
-      position: absolute;
-      inset: 26%;
-      border-radius: 50%;
-      background: #000;
-      box-shadow: 0 0 60px 20px rgba(0, 0, 0, 0.9);
-    }
-    @keyframes spin  { to { transform: rotateX(72deg) rotate(360deg); } }
-    @keyframes pulse { 50% { opacity: 0.7; } }
 
     /* ---------- Content sections ---------- */
     .content { padding: 0 8%; }
@@ -250,101 +203,4 @@
     }
     a.btn { text-decoration: none; }
 
-    /* ---------- Responsive ---------- */
-    @media (max-width: 900px) {
-      .cards.four { grid-template-columns: 1fr 1fr; }
-      .cards.three, .anatomy { grid-template-columns: 1fr; }
-      .hero { grid-template-columns: 1fr; padding-top: 110px; padding-bottom: 60px; min-height: auto; }
-      .bh-wrap { order: -1; }
-    }
-    @media (max-width: 600px) {
-      .home-frame { margin: 14px; border-radius: 26px; }
-      h1 { font-size: 44px; letter-spacing: -1px; }
-      h2 { font-size: 28px; }
-      .cards.four { grid-template-columns: 1fr; }
-      .back { left: 22px; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .disk, .halo { animation: none; }
-      .btn, .space-card { transition: none; }
-    }
-  </style>
-</head>
-<body>
-  <div class="home-frame">
-    <a class="back" href="index.html">← Space Explorer</a>
-
-    <header class="hero">
-      <div>
-        <h1>BLACK HOLES</h1>
-        <p class="hero-description">
-          Regions of space where gravity is so strong that nothing, not even light, can escape.
-        </p>
-        <button class="btn" onclick="document.getElementById('what').scrollIntoView({behavior: 'smooth'})">
-          <span class="arrow">→</span>
-          <span>Learn more</span>
-        </button>
-      </div>
-
-      <div class="bh-wrap" aria-hidden="true">
-        <div class="bh">
-          <div class="halo"></div>
-          <div class="disk"></div>
-          <div class="shadow"></div>
-        </div>
-      </div>
-    </header>
-
-    <main class="content">
-
-      <section class="section" id="what">
-        <h2>What is a black hole?</h2>
-        <p class="lead">
-          A black hole forms when a huge amount of matter is squeezed into a very small space.
-          Its gravity becomes so strong that the escape speed passes the speed of light.
-          You can't see a black hole directly, but you can see the glowing gas around it and the way it bends the light of stars behind it.
-        </p>
-      </section>
-
-      <section class="section">
-        <h2>Parts of a black hole</h2>
-        <p class="lead">Every black hole has the same basic structure.</p>
-        <div class="anatomy">
-          <div class="space-card">
-            <h3>Event horizon</h3>
-            <p>The point of no return. Anything that crosses it, including light, can't come back out.</p>
-          </div>
-          <div class="space-card">
-            <h3>Singularity</h3>
-            <p>The center, where our current physics predicts matter is crushed to infinite density. Scientists still don't know what really happens there.</p>
-          </div>
-          <div class="space-card">
-            <h3>Accretion disk</h3>
-            <p>A spinning ring of gas and dust that falls toward the black hole. Friction heats it until it glows brightly in X-rays.</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="section">
-        <h2>Types of black holes</h2>
-        <p class="lead">Black holes come in very different sizes.</p>
-        <div class="cards four">
-          <div class="space-card">
-            <h3>Stellar</h3>
-            <p>Born when a massive star runs out of fuel and collapses in a supernova.</p>
-            <span class="stat">About 3 to 100 times the Sun's mass</span>
-          </div>
-          <div class="space-card">
-            <h3>Intermediate</h3>
-            <p>A rarer middle size. Astronomers have found only a few strong candidates.</p>
-            <span class="stat">About 100 to 100,000 solar masses</span>
-          </div>
-          <div class="space-card">
-            <h3>Supermassive</h3>
-            <p>Sits at the center of most large galaxies. How they grew so big so fast is still an open question.</p>
-            <span class="stat">Millions to billions of solar masses</span>
-          </div>
-          <div class="space-card">
-            <h3>Primordial</h3>
-            <p>Hypothetical black holes that may have formed in the first moments after the Big Bang. None have been
+    /*
