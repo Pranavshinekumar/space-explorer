@@ -260,15 +260,43 @@ button:active {
   height: 32px !important;
   flex-shrink: 0;
 }
+  
+.navbar {
+  position: absolute;
+  top: 30px;
+  right: 45px;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  z-index: 20;
+  font-family: 'Inter', sans-serif;
+}
+
+.nav-link {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 400;
+  transition: color 0.25s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: white;
+}
+
+.nav-link.active {
+  border-bottom: 1px solid white;
+  padding-bottom: 7px;
+}
+
     </style>
   </head>
   <body>
     <div class="home-frame">
       
 <body>
-  <div class="home-frame">
-
-    <nav class="navbar">
+  <div class="home-frame" <nav class="navbar">
       <a href="index.html" class="nav-link active">Home</a>
       <a href="#explore" class="nav-link">Explore</a>
       <a href="#info" class="nav-link">Info</a>
