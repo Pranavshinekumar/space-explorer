@@ -19,6 +19,7 @@
  .home-frame {
   position: relative;
   overflow: hidden;
+  isolation: isolate;
   border: 1px solid rgba(255, 255, 255, 0.22);
   border-radius: 35px;
 }
@@ -27,7 +28,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  z-index: 0;
+  z-index: -1;
   pointer-events: none;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
