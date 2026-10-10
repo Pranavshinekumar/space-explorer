@@ -303,6 +303,17 @@ button:active {
 .home-frame .navbar .nav-link.active {
   color: #fff;
 }
+      .explore-button {
+  font-size: 18px;
+  gap: 20px;
+  padding: 9px 30px 9px 9px;
+}
+
+.explore-button .arrow {
+  width: 52px;
+  height: 52px;
+  font-size: 26px;
+}
 
 
     </style>
@@ -322,7 +333,7 @@ button:active {
     <p class="hero-description">
    Explore the planets, galaxies, comets, and wonders of the universe.
 </p>
-    <button onclick="document.getElementById('explore').scrollIntoView({behavior: 'smooth'})">
+    <button class="explore-button" onclick="document.getElementById('explore').scrollIntoView({behavior: 'smooth'})">
   <span class="arrow">→</span>
   <span>Start Exploring</span>
 </button>
