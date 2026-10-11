@@ -142,6 +142,25 @@
         font-size: 40px;
       }
     }
+    .planet-image {
+  width: 100%;
+  height: 170px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.planet-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.planet-card:hover .planet-image img {
+  transform: scale(1.08);
+}
   </style>
 </head>
 
@@ -158,49 +177,65 @@
     <div class="planets-container">
 
       <div class="planet-card" onclick="window.location.href='mercury.html'">
-        <div class="planet-icon">☿</div>
+        <div class="planet-icon">
+          <img src="mercury.jpg" alt="Mercury">
+        </div>
         <h2>Mercury</h2>
         <p>The smallest planet and the closest planet to the Sun.</p>
       </div>
 
       <div class="planet-card" onclick="window.location.href='venus.html'">
-        <div class="planet-icon">♀</div>
+        <div class="planet-icon">
+          <img src="venus.jpg" alt="Venus">
+        </div>
         <h2>Venus</h2>
         <p>A hot world covered by a thick atmosphere.</p>
       </div>
 
       <div class="planet-card" onclick="window.location.href='earth.html'">
-        <div class="planet-icon">🌍</div>
+        <div class="planet-icon">
+          <img src="earth.jpg alt="Earth">
+        </div>
         <h2>Earth</h2>
         <p>Our home planet and the only world known to support life.</p>
       </div>
 
       <div class="planet-card" onclick="window.location.href='mars.html'">
-        <div class="planet-icon">🔴</div>
+        <div class="planet-icon">
+          <img src="mars.jpg" alt="Mars">
+        </div>
         <h2>Mars</h2>
         <p>The red planet with a cold, rocky surface.</p>
       </div>
 
       <div class="planet-card" onclick="window.location.href='jupiter.html'">
-        <div class="planet-icon">🟠</div>
+        <div class="planet-icon">
+          <img src="jupiter.jpg" alt="Jupiter">
+        </div>
         <h2>Jupiter</h2>
         <p>The largest planet in our Solar System.</p>
       </div>
 
       <div class="planet-card" onclick="window.location.href='saturn.html'">
-        <div class="planet-icon">🪐</div>
+        <div class="planet-icon">
+          <img src="saturn.jpg" alt="Saturn">
+        </div>
         <h2>Saturn</h2>
         <p>A giant planet famous for its spectacular rings.</p>
       </div>
 
       <div class="planet-card" onclick="window.location.href='uranus.html'">
-        <div class="planet-icon">🔵</div>
+        <div class="planet-icon">
+          <img src="uranus.jpg" alt="Uranus">
+        </div>
         <h2>Uranus</h2>
         <p>An icy giant that rotates at an unusual angle.</p>
       </div>
 
       <div class="planet-card" onclick="window.location.href='neptune.html'">
-        <div class="planet-icon">🔵</div>
+        <div class="planet-icon">
+          <img src="neptune.jpg alt="Neptune">
+        </div>
         <h2>Neptune</h2>
         <p>The distant blue planet with extremely powerful winds.</p>
       </div>
