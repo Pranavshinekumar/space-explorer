@@ -452,12 +452,7 @@ button:active {
 }
 
 
-
-.home-frame {
-  position: relative;
-}
-
-
+```css
 
 .home-frame {
   position: relative;
@@ -465,45 +460,58 @@ button:active {
   overflow: hidden;
 }
 
-
-
-
-.home-frame h1,
-.home-frame .hero-description,
-.home-frame .explore-button {
-  position: relative;
-  z-index: 1;
+.home-frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+  background: rgba(0, 0, 0, 0.08);
 }
 
+.home-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
 
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.6) 0%,
+    rgba(0, 0, 0, 0.35) 35%,
+    transparent 70%
+  );
 
-}
-      .home-frame {
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-}
-
-
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 
   -webkit-mask-image: linear-gradient(
     to right,
-    transparent 0%,
-    rgba(0, 0, 0, 0.25) 20%,
-    black 48%,
-    black 100%
+    black 0%,
+    black 20%,
+    transparent 68%
   );
 
   mask-image: linear-gradient(
     to right,
-    transparent 0%,
-    rgba(0, 0, 0, 0.25) 20%,
-    black 48%,
-    black 100%
+    black 0%,
+    black 20%,
+    transparent 68%
   );
-
-  filter: blur(0);
 }
+
+.home-frame h1,
+.home-frame .hero-description,
+.home-frame .explore-button,
+.home-frame .navbar,
+.home-frame #explore {
+  position: relative;
+  z-index: 1;
+}
+
 
 
 .home-frame::after {
