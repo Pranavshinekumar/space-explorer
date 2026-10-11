@@ -155,19 +155,33 @@
     
 
 .planet-image {
-  width: 100%;
-  overflow: hidden;
+width: 100%;
+height: 180px;
+display: flex;
+justify-content: center;
+align-items: center;
+overflow: hidden;
+margin-bottom: 15px;
 }
 
 .planet-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  transform: translateX(-20px);
-  display: block;
+display: block;
+width: 100%;
+height: 100%;
+object-fit: contain;
+object-position: center;
+transform: none;
 }
-.planet-card:hover .planet-image img {
-  transform: scale(1.04);
+
+.planet-card .planet-image img {
+transform: scale(1.04);
+}
+
+.mercury-image img {
+width: 100%;
+height: 100%;
+object-fit: contain;
+object-position: center;
 }
     .mercury-image {
   width: 100%;
