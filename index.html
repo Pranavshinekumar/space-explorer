@@ -503,13 +503,14 @@ button:active {
           Explore enormous collections of stars and planets.
         </p>
       </div>
-      <div class="space-card"  class="space-card" onclick="window.location.href='blackholes.html'">
+      <div class="space-card"  onclick="window.location.href='blackholes.html'">
         <h3>
           🕳️ Black Holes
         </h3>
         <p>
           Discover some of the strangest objects in space.
         </p>
+      </div>
       </div>
     </section>
     <script>
@@ -555,55 +556,72 @@ button:active {
     <p class="info-footer">Designed with curiosity for the universe.</p>
   </div>
 </div>
+      ```html
+<!-- ABOUT POPUP -->
+<div class="info-overlay" id="aboutOverlay">
+  <div class="info-box">
+    <button class="info-close" id="closeAbout" aria-label="Close">&times;</button>
 
+    <p class="info-label">OUR PURPOSE</p>
+    <h2>About Space Explorer</h2>
+    <p class="info-description">Discover the wonders of our universe.</p>
+
+    <p class="about-text">
+      Space Explorer was created as a project for the
+      <strong>Digital Fest at Habitat School, Al Jurf, Ajman, UAE.</strong>
+      Our goal is to make learning about space more engaging
+      by exploring planets, stars, black holes, and the mysteries
+      of the universe through an interactive website.
+    </p>
+
+    <div class="about-credits">
+      <p>CREATED BY</p>
+      <div>PRANAV SHINEKUMAR</div>
+      <div>ADVAY ABHEESH</div>
+      <div>DENNIS TITUS</div>
+    </div>
+  </div>
+</div>
+
+<!-- INFO AND ABOUT POPUP CONTROLS -->
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-  // INFO POPUP
   const infoOverlay = document.getElementById("infoOverlay");
   const closeInfo = document.getElementById("closeInfo");
-
-  document.querySelectorAll(".navbar .nav-link").forEach(link => {
-    if (link.textContent.trim().toLowerCase() === "info") {
-      link.addEventListener("click", event => {
-        event.preventDefault();
-        infoOverlay.classList.add("show");
-      });
-    }
-  });
-
-  closeInfo.addEventListener("click", () => {
-    infoOverlay.classList.remove("show");
-  });
-
-  infoOverlay.addEventListener("click", event => {
-    if (event.target === infoOverlay) {
-      infoOverlay.classList.remove("show");
-    }
-  });
-
   const aboutOverlay = document.getElementById("aboutOverlay");
   const closeAbout = document.getElementById("closeAbout");
 
-  document.querySelectorAll(".navbar .nav-link").forEach(link => {
-    if (link.textContent.trim().toLowerCase() === "about") {
-      link.addEventListener("click", event => {
-        event.preventDefault();
-        aboutOverlay.classList.add("show");
-      });
-    }
+
+  document.querySelector('a[href="#info"]').addEventListener("click", event => {
+    event.preventDefault();
+    infoOverlay.classList.add("show");
+  });
+
+ 
+  document.querySelector('a[href="#about"]').addEventListener("click", event => {
+    event.preventDefault();
+    aboutOverlay.classList.add("show");
+  });
+
+
+  closeInfo.addEventListener("click", () => {
+    infoOverlay.classList.remove("show");
   });
 
   closeAbout.addEventListener("click", () => {
     aboutOverlay.classList.remove("show");
   });
 
-  aboutOverlay.addEventListener("click", event => {
-    if (event.target === aboutOverlay) {
-      aboutOverlay.classList.remove("show");
-    }
+
+  [infoOverlay, aboutOverlay].forEach(overlay => {
+    overlay.addEventListener("click", event => {
+      if (event.target === overlay) {
+        overlay.classList.remove("show");
+      }
+    });
   });
 
-  // CLOSE BOTH POPUPS WITH ESCAPE
+
   document.addEventListener("keydown", event => {
     if (event.key === "Escape") {
       infoOverlay.classList.remove("show");
@@ -611,8 +629,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
-  
-</script>  
+</script>
+
 </div>
-  </body>
+</body>
 </html>
