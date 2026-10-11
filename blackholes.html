@@ -20,6 +20,17 @@
       background-repeat: no-repeat;
       background-attachment: fixed;
     }
+    .blackhole-frame::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    background: rgba(0, 0, 0, 0.18);
+}
 
     .home-frame {
       margin: 40px;
@@ -33,7 +44,7 @@
         0 0 40px rgba(0, 0, 0, 0.25);
     }
 
-    /* ---------- Back link ---------- */
+  
     .back {
       position: absolute;
       top: 24px;
@@ -51,7 +62,7 @@
     .back:focus-visible,
     .btn:focus-visible { outline: 2px solid white; outline-offset: 4px; }
 
-    /* ---------- Hero ---------- */
+  
     .hero {
       display: grid;
       grid-template-columns: 1.1fr 1fr;
@@ -117,7 +128,6 @@
       font-weight: 300;
     }
 
-    /* ---------- The black hole ---------- */
     .bh-wrap {
       display: flex;
       align-items: center;
@@ -163,7 +173,7 @@
     @keyframes spin  { to { transform: rotateX(72deg) rotate(360deg); } }
     @keyframes pulse { 50% { opacity: 0.7; } }
 
-    /* ---------- Content sections ---------- */
+ 
     .content { padding: 0 8%; }
 
     .section {
@@ -250,7 +260,6 @@
     }
     a.btn { text-decoration: none; }
 
-    /* ---------- Responsive ---------- */
     @media (max-width: 900px) {
       .cards.four { grid-template-columns: 1fr 1fr; }
       .cards.three, .anatomy { grid-template-columns: 1fr; }
@@ -402,7 +411,7 @@
   </div>
 
   <script>
-    // Same tilt effect as the home page cards
+ 
     document.querySelectorAll('.space-card').forEach(card => {
       card.addEventListener('mousemove', (e) => {
         const rect = card.getBoundingClientRect();
