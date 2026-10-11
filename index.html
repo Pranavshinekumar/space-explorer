@@ -560,7 +560,6 @@ button:active {
   const infoOverlay = document.getElementById("infoOverlay");
   const closeInfo = document.getElementById("closeInfo");
 
-  // Open the popup when Info is clicked
   document.querySelectorAll("a, button").forEach(item => {
     if (item.textContent.trim().toLowerCase() === "info") {
       item.addEventListener("click", function(event) {
@@ -609,9 +608,7 @@ aboutOverlay.addEventListener("click", event => {
     aboutOverlay.classList.remove("show");
   }
 });
-</script>
-     
-<div class="info-overlay" id="aboutOverlay">
+  <div class="info-overlay" id="aboutOverlay">
   <div class="info-box">
     <button class="info-close" id="closeAbout" aria-label="Close">&times;</button>
 
@@ -638,6 +635,7 @@ aboutOverlay.addEventListener("click", event => {
       <div>DENNIS TITUS</div>
     </div>
   </div>
+</script>  
 </div>
   </body>
 </html>
