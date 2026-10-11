@@ -424,6 +424,32 @@ button:active {
     transition: none;
   }
 }
+      .about-text {
+  margin-top: 22px;
+  font-size: 14px;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.about-credits {
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  display: grid;
+  gap: 12px;
+}
+
+.about-credits p {
+  margin: 0 0 4px;
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.about-credits div {
+  font-size: 12px;
+  letter-spacing: 1px;
+}
 
 
     </style>
@@ -562,6 +588,56 @@ e
       infoOverlay.classList.remove("show");
     }
   });
+  const aboutOverlay = document.getElementById("aboutOverlay");
+const closeAbout = document.getElementById("closeAbout");
+
+document.querySelectorAll("a, button").forEach(item => {
+  if (item.textContent.trim().toLowerCase() === "about") {
+    item.addEventListener("click", function(event) {
+      event.preventDefault();
+      aboutOverlay.classList.add("show");
+    });
+  }
+});
+
+closeAbout.addEventListener("click", () => {
+  aboutOverlay.classList.remove("show");
+});
+
+aboutOverlay.addEventListener("click", event => {
+  if (event.target === aboutOverlay) {
+    aboutOverlay.classList.remove("show");
+  }
+});
 </script>
+     
+<div class="info-overlay" id="aboutOverlay">
+  <div class="info-box">
+    <button class="info-close" id="closeAbout" aria-label="Close">&times;</button>
+
+    <p class="info-label">OUR PURPOSE</p>
+    <h2>About Space Explorer</h2>
+
+    <p class="info-description">
+      Discover the wonders of our universe.
+    </p>
+
+    <p class="about-text">
+      Space Explorer was created as a project for the
+      <strong>Digital Fest at Habitat School, Al Jurf,
+      Ajman, UAE.</strong>
+      Our goal is to make learning about space more engaging
+      by exploring planets, stars, black holes, and the mysteries
+      of the universe through an interactive website.
+    </p>
+
+    <div class="about-credits">
+      <p>CREATED BY</p>
+      <div>PRANAV SHINEKUMAR</div>
+      <div>ADVAY ABHEESH</div>
+      <div>DENNIS TITUS</div>
+    </div>
+  </div>
+</div>
   </body>
 </html>
