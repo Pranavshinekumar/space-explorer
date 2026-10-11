@@ -471,17 +471,18 @@ button:active {
   background: rgba(0, 0, 0, 0.08);
 }
 
+```css
 .home-frame::after {
   content: "";
   position: absolute;
   inset: 0;
-  z-index: -1;
+  z-index: 0;
   pointer-events: none;
 
   background: linear-gradient(
     to right,
-    rgba(0, 0, 0, 0.6) 0%,
-    rgba(0, 0, 0, 0.35) 35%,
+    rgba(2, 4, 12, 0.45) 0%,
+    rgba(2, 4, 12, 0.2) 35%,
     transparent 70%
   );
 
@@ -491,17 +492,27 @@ button:active {
   -webkit-mask-image: linear-gradient(
     to right,
     black 0%,
-    black 20%,
-    transparent 68%
+    black 15%,
+    transparent 70%
   );
 
   mask-image: linear-gradient(
     to right,
     black 0%,
-    black 20%,
-    transparent 68%
+    black 15%,
+    transparent 70%
   );
 }
+```css
+.home-frame .navbar,
+.home-frame h1,
+.home-frame .hero-description,
+.home-frame .explore-button,
+.home-frame #explore {
+  position: relative;
+  z-index: 1;
+}
+
 
 .home-frame h1,
 .home-frame .hero-description,
