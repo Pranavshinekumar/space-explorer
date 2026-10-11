@@ -138,31 +138,7 @@
       width: min(420px, 80vw);
       aspect-ratio: 1;
     }
-    .disk {
-      position: absolute;
-      inset: 14% -12%;
-      border-radius: 50%;
-      background: conic-gradient(
-        from 0deg,
-        #ffd9a0, #ff9a3c, #b8460f, #3a1405,
-        #b8460f, #ff9a3c, #ffd9a0
-      );
-      filter: blur(6px);
-      transform: rotateX(72deg);
-      animation: spin 14s linear infinite;
-      -webkit-mask: radial-gradient(circle, transparent 38%, #000 40%, #000 62%, transparent 72%);
-              mask: radial-gradient(circle, transparent 38%, #000 40%, #000 62%, transparent 72%);
-    }
-    .halo {
-      position: absolute;
-      inset: 18%;
-      border-radius: 50%;
-      background: conic-gradient(from 90deg, #ffd9a0, #ff9a3c, #b8460f, #ff9a3c, #ffd9a0);
-      filter: blur(5px);
-      -webkit-mask: radial-gradient(circle, transparent 62%, #000 66%, #000 74%, transparent 80%);
-              mask: radial-gradient(circle, transparent 62%, #000 66%, #000 74%, transparent 80%);
-      animation: pulse 6s ease-in-out infinite;
-    }
+    
     .shadow {
       position: absolute;
       inset: 26%;
@@ -296,13 +272,6 @@
         </button>
       </div>
 
-      <div class="bh-wrap" aria-hidden="true">
-        <div class="bh">
-          <div class="halo"></div>
-          <div class="disk"></div>
-          <div class="shadow"></div>
-        </div>
-      </div>
     </header>
 
     <main class="content">
