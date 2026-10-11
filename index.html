@@ -591,7 +591,8 @@ e
   const aboutOverlay = document.getElementById("aboutOverlay");
 const closeAbout = document.getElementById("closeAbout");
 
-document.querySelectorAll("a, button").forEach(item => {
+
+document.querySelectorAll("nav a, nav button").forEach(item => {
   if (item.textContent.trim().toLowerCase() === "about") {
     item.addEventListener("click", function(event) {
       event.preventDefault();
