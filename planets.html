@@ -199,6 +199,13 @@ object-position: center;
   transform: translateX(0);
   display: block;
 }
+    .venus-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  transform: translateX(-10px);
+}
 
   </style>
 </head>
@@ -224,7 +231,7 @@ object-position: center;
       </div>
 
       <div class="planet-card" onclick="window.location.href='venus.html'">
-        <div class="planet-image">
+        <div class="planet-image venus-image">
   <img src="venus.jpg" alt="Venus">
 </div>
         <h2>Venus</h2>
