@@ -3,72 +3,215 @@
 <head>
     <title>Mercury | Space Explorer</title>
 
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
 
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        padding: 24px;
+        min-height: 100vh;
+        font-family: 'Inter', sans-serif;
+        color: white;
+
+        background-image: url("YOUR_BLACKHOLE_IMAGE_PATH");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-color: #080b14;
+    }
+
+    /* Full-page liquid glass blur */
+    .page {
+        min-height: calc(100vh - 48px);
+        padding: 36px;
+        border: 1px solid rgba(255, 255, 255, 0.13);
+        border-radius: 28px;
+
+        background: rgba(12, 16, 28, 0.55);
+        backdrop-filter: blur(22px);
+        -webkit-backdrop-filter: blur(22px);
+    }
+
+    .back {
+        display: inline-block;
+        padding: 12px 18px;
+        color: white;
+        text-decoration: none;
+        background: rgba(255, 255, 255, 0.07);
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: 30px;
+    }
+
+    .hero {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+        margin: 40px 0;
+    }
+
+    .info, .planet {
+        width: 50%;
+    }
+
+    .small-title {
+        color: #9ba9c4;
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 4px;
+    }
+
+    h1 {
+        font-size: 76px;
+        font-weight: 300;
+        margin: 20px 0;
+    }
+
+    .description {
+        color: #b4bdce;
+        font-size: 15px;
+        line-height: 2;
+        max-width: 470px;
+    }
+
+    .planet {
+        padding: 20px;
+        border-radius: 24px;
+        background: rgba(255, 255, 255, 0.045);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+    }
+
+    .planet img {
+        width: 100%;
+        display: block;
+        border-radius: 14px;
+    }
+
+    h2 {
+        font-size: 24px;
+        font-weight: 500;
+    }
+
+    .facts {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 15px;
+    }
+
+    .fact {
+        padding: 22px;
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.055);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+    }
+
+    .fact p {
+        color: #91a0bb;
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 1px;
+    }
+
+    .fact h3 {
+        font-size: 19px;
+        font-weight: 500;
+        margin-bottom: 0;
+    }
+
+    @media (max-width: 800px) {
         body {
-            margin: 0;
-            padding: 30px;
-            font-family: 'Inter', sans-serif;
-            color: white;
+            padding: 10px;
+        }
 
-            
-            background-image: url("WhatsApp Image 2026-10-06 at 8.34.20 PM.jpeg");
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            background-repeat: no-repeat;
-            background-color: black;
+        .page {
+            padding: 20px;
+        }
+
+        .hero {
+            flex-direction: column;
+        }
+
+        .info, .planet {
+            width: 100%;
         }
 
         h1 {
-            text-align: center;
-            font-size: 45px;
+            font-size: 55px;
         }
 
-        h2 {
-            margin-top: 25px;
+        .facts {
+            grid-template-columns: repeat(2, 1fr);
         }
+    }
 
-       
-        .glass {
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 20px;
-            padding: 25px;
-            margin: 25px auto;
-            max-width: 800px;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    @media (max-width: 450px) {
+        .facts {
+            grid-template-columns: 1fr;
         }
+    }
+</style>
 
-        img {
-            width: 220px;
-            display: block;
-            margin: 20px auto;
-        }
+<div class="page">
 
-        p, li {
-            font-size: 17px;
-            line-height: 1.8;
-        }
+    <a class="back" href="planets.html">← Back to Planets</a>
 
-        a {
-            color: white;
-            text-decoration: none;
-        }
+    <div class="hero">
 
-        .back {
-            display: block;
-            width: fit-content;
-            margin: 25px auto;
-            padding: 12px 22px;
-            background: rgba(255, 255, 255, 0.12);
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            border-radius: 12px;
-        }
-    </style>
+        <div class="info">
+            <p class="small-title">PLANET 01 / SOLAR SYSTEM</p>
+
+            <h1>Mercury</h1>
+
+            <p class="description">
+                The smallest planet in our Solar System and the
+                closest world to the Sun. Its ancient, crater-covered
+                surface holds clues to the early history of our
+                cosmic neighbourhood.
+            </p>
+        </div>
+
+        <div class="planet">
+            <img src="mercury.png" alt="Planet Mercury">
+        </div>
+
+    </div>
+
+    <h2>Mercury at a glance</h2>
+
+    <div class="facts">
+
+        <div class="fact">
+            <p>DIAMETER</p>
+            <h3>4,879 km</h3>
+        </div>
+
+        <div class="fact">
+            <p>YEAR LENGTH</p>
+            <h3>88 days</h3>
+        </div>
+
+        <div class="fact">
+            <p>NATURAL MOONS</p>
+            <h3>0</h3>
+        </div>
+
+        <div class="fact">
+            <p>DISTANCE FROM SUN</p>
+            <h3>57.9 million km</h3>
+        </div>
+
+    </div>
+
+</div>
+</style>
 </head>
 
 <body>
