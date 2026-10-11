@@ -516,6 +516,67 @@ button:active {
     opacity: 0.35;
   }
 }
+      .home-frame {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.solar-system-bg {
+  z-index: -1;
+  opacity: 0.9;
+
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0, 0, 0, 0.25) 20%,
+    black 48%,
+    black 100%
+  );
+
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0, 0, 0, 0.25) 20%,
+    black 48%,
+    black 100%
+  );
+
+  filter: blur(0);
+}
+
+
+.home-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.6) 0%,
+    rgba(0, 0, 0, 0.35) 35%,
+    transparent 70%
+  );
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  mask-image: linear-gradient(
+    to right,
+    black 0%,
+    black 20%,
+    transparent 68%
+  );
+
+  -webkit-mask-image: linear-gradient(
+    to right,
+    black 0%,
+    black 20%,
+    transparent 68%
+  );
+}
 
 
     </style>
