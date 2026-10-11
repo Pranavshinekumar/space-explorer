@@ -557,23 +557,23 @@ button:active {
 </div>
 
 <script>
+document.addEventListener("DOMContentLoaded", () => {
+  // INFO POPUP
   const infoOverlay = document.getElementById("infoOverlay");
   const closeInfo = document.getElementById("closeInfo");
 
-  document.querySelectorAll("a, button").forEach(item => {
-    if (item.textContent.trim().toLowerCase() === "info") {
-      item.addEventListener("click", function(event) {
+  document.querySelectorAll(".navbar .nav-link").forEach(link => {
+    if (link.textContent.trim().toLowerCase() === "info") {
+      link.addEventListener("click", event => {
         event.preventDefault();
         infoOverlay.classList.add("show");
       });
     }
   });
 
-
   closeInfo.addEventListener("click", () => {
     infoOverlay.classList.remove("show");
   });
-
 
   infoOverlay.addEventListener("click", event => {
     if (event.target === infoOverlay) {
@@ -581,33 +581,37 @@ button:active {
     }
   });
 
+  const aboutOverlay = document.getElementById("aboutOverlay");
+  const closeAbout = document.getElementById("closeAbout");
+
+  document.querySelectorAll(".navbar .nav-link").forEach(link => {
+    if (link.textContent.trim().toLowerCase() === "about") {
+      link.addEventListener("click", event => {
+        event.preventDefault();
+        aboutOverlay.classList.add("show");
+      });
+    }
+  });
+
+  closeAbout.addEventListener("click", () => {
+    aboutOverlay.classList.remove("show");
+  });
+
+  aboutOverlay.addEventListener("click", event => {
+    if (event.target === aboutOverlay) {
+      aboutOverlay.classList.remove("show");
+    }
+  });
+
+  // CLOSE BOTH POPUPS WITH ESCAPE
   document.addEventListener("keydown", event => {
     if (event.key === "Escape") {
       infoOverlay.classList.remove("show");
+      aboutOverlay.classList.remove("show");
     }
   });
- const aboutOverlay = document.getElementById("aboutOverlay");
-const closeAbout = document.getElementById("closeAbout");
-
-document.querySelectorAll(".navbar .nav-link").forEach(link => {
-  if (link.textContent.trim().toLowerCase() === "about") {
-    link.addEventListener("click", event => {
-      event.preventDefault();
-      aboutOverlay.classList.add("show");
-    });
-  }
 });
-
-closeAbout.addEventListener("click", () => {
-  aboutOverlay.classList.remove("show");
-});
-
-aboutOverlay.addEventListener("click", event => {
-  if (event.target === aboutOverlay) {
-    aboutOverlay.classList.remove("show");
-  }
-});
-  </div>
+  
 </script>  
 </div>
   </body>
