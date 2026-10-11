@@ -465,40 +465,9 @@ button:active {
   overflow: hidden;
 }
 
-.solar-system-bg {
-  position: absolute;
-  top: 70px;
-  right: -4%;
-  width: 58%;
-  height: 520px;
-
-  background-image: url("solarsystem.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-
-  opacity: 0.65;
-  pointer-events: none;
-  z-index: -1;
 
 
-  -webkit-mask-image: linear-gradient(
-    to right,
-    transparent 0%,
-    black 22%,
-    black 78%,
-    transparent 100%
-  );
-  mask-image: linear-gradient(
-    to right,
-    transparent 0%,
-    black 22%,
-    black 78%,
-    transparent 100%
-  );
-}
 
-/
 .home-frame h1,
 .home-frame .hero-description,
 .home-frame .explore-button {
@@ -507,14 +476,7 @@ button:active {
 }
 
 
-@media (max-width: 800px) {
-  .solar-system-bg {
-    top: 100px;
-    right: -15%;
-    width: 85%;
-    height: 400px;
-    opacity: 0.35;
-  }
+
 }
       .home-frame {
   position: relative;
@@ -522,9 +484,7 @@ button:active {
   overflow: hidden;
 }
 
-.solar-system-bg {
-  z-index: -1;
-  opacity: 0.9;
+
 
   -webkit-mask-image: linear-gradient(
     to right,
@@ -584,7 +544,6 @@ button:active {
   <body>
     <div class="home-frame">
  
-<div class="solar-system-bg" aria-hidden="true"></div>
 
   <nav class="navbar">
     <a href="index.html" class="nav-link active">Home</a>
