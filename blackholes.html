@@ -254,6 +254,21 @@
       .disk, .halo { animation: none; }
       .btn, .space-card { transition: none; }
     }
+    body {
+position: relative;
+isolation: isolate;
+}
+
+body::before {
+content: "";
+position: fixed;
+inset: 0;
+z-index: -1;
+pointer-events: none;
+backdrop-filter: blur(8px);
+-webkit-backdrop-filter: blur(8px);
+background: rgba(0, 0, 0, 0.05);
+}
   </style>
 </head>
 <body>
