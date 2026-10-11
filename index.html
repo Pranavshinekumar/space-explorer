@@ -323,6 +323,107 @@ button:active {
   margin: 0;
   padding: 0;
 }
+      .info-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.info-overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.info-box {
+  position: relative;
+  width: min(460px, 100%);
+  padding: 42px 30px;
+  text-align: center;
+  color: white;
+  background: rgba(15, 18, 26, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 28px;
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.45);
+  transform: translateY(15px);
+  transition: transform 0.3s ease;
+}
+
+.info-overlay.show .info-box {
+  transform: translateY(0);
+}
+
+.info-close {
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  border: none;
+  background: transparent;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.info-label {
+  font-size: 11px;
+  letter-spacing: 4px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.info-box h2 {
+  margin: 15px 0 10px;
+  font-size: 30px;
+  font-weight: 400;
+}
+
+.info-description {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 14px;
+}
+
+.creator-list {
+  display: grid;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.creator {
+  padding: 16px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.06);
+  font-size: 13px;
+  letter-spacing: 1px;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.creator:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-2px);
+}
+
+.info-footer {
+  margin: 25px 0 0;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .info-overlay,
+  .info-box,
+  .creator {
+    transition: none;
+  }
+}
 
 
     </style>
@@ -406,6 +507,60 @@ button:active {
       card.style.transform =
         'perspective(600px) rotateX(0deg) rotateY(0deg) scale(1)';
     });
+  });
+</script>
+
+<div class="info-overlay" id="infoOverlay">
+  <div class="info-box">
+    <button class="info-close" id="closeInfo" aria-label="Close">&times;</button>
+
+    <p class="info-label">SPACE EXPLORER</p>
+    <h2>Meet the Creators</h2>
+    <p class="info-description">
+      This project was created by:
+    </p>
+
+    <div class="creator-list">
+      <div class="creator">PRANAV SHINEKUMAR</div>
+      <div class="creator">ADVAY ABHEESH</div>
+      <div class="creator">DENNIS TITUS</div>
+    </div>
+
+    <p class="info-footer">Designed with curiosity for the universe.</p>
+  </div>
+</div>
+
+<script>
+  const infoOverlay = document.getElementById("infoOverlay");
+  const closeInfo = document.getElementById("closeInfo");
+
+  // Open the popup when Info is clicked
+  document.querySelectorAll("a, button").forEach(item => {
+    if (item.textContent.trim().toLowerCase() === "info") {
+      item.addEventListener("click", function(event) {
+        event.preventDefault();
+        infoOverlay.classList.add("show");
+      });
+    }
+  });
+
+
+  closeInfo.addEventListener("click", () => {
+    infoOverlay.classList.remove("show");
+  });
+
+
+  infoOverlay.addEventListener("click", event => {
+    if (event.target === infoOverlay) {
+      infoOverlay.classList.remove("show");
+    }
+  });
+
+e
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape") {
+      infoOverlay.classList.remove("show");
+    }
   });
 </script>
   </body>
