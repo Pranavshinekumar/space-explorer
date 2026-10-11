@@ -586,13 +586,12 @@ button:active {
       infoOverlay.classList.remove("show");
     }
   });
-  const aboutOverlay = document.getElementById("aboutOverlay");
+ const aboutOverlay = document.getElementById("aboutOverlay");
 const closeAbout = document.getElementById("closeAbout");
 
-
-document.querySelectorAll("nav a, nav button").forEach(item => {
-  if (item.textContent.trim().toLowerCase() === "about") {
-    item.addEventListener("click", function(event) {
+document.querySelectorAll(".navbar .nav-link").forEach(link => {
+  if (link.textContent.trim().toLowerCase() === "about") {
+    link.addEventListener("click", event => {
       event.preventDefault();
       aboutOverlay.classList.add("show");
     });
@@ -608,32 +607,6 @@ aboutOverlay.addEventListener("click", event => {
     aboutOverlay.classList.remove("show");
   }
 });
-  <div class="info-overlay" id="aboutOverlay">
-  <div class="info-box">
-    <button class="info-close" id="closeAbout" aria-label="Close">&times;</button>
-
-    <p class="info-label">OUR PURPOSE</p>
-    <h2>About Space Explorer</h2>
-
-    <p class="info-description">
-      Discover the wonders of our universe.
-    </p>
-
-    <p class="about-text">
-      Space Explorer was created as a project for the
-      <strong>Digital Fest at Habitat School, Al Jurf,
-      Ajman, UAE.</strong>
-      Our goal is to make learning about space more engaging
-      by exploring planets, stars, black holes, and the mysteries
-      of the universe through an interactive website.
-    </p>
-
-    <div class="about-credits">
-      <p>CREATED BY</p>
-      <div>PRANAV SHINEKUMAR</div>
-      <div>ADVAY ABHEESH</div>
-      <div>DENNIS TITUS</div>
-    </div>
   </div>
 </script>  
 </div>
